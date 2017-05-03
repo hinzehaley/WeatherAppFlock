@@ -10,10 +10,12 @@ Weather application for Flock coding challenge. Currently displays three-day wea
 
 
 # Next Steps
-1. Display helpful error messages when no weather data was retrieved
+1. Add better method comments
 
-2. Add GPS monitoring. When the application opens, display weather for current location
+2. Display helpful error messages when no weather data was retrieved
 
-3. Add a search bar to search for weather for a given location, update weather information with the information for the location input
+3. Add GPS monitoring. When the application opens, display weather for current location
 
-4. Add colors to make the UI cleaner
+4. Add a search bar to search for weather for a given location, update weather information with the information for the location input
+
+5. Add colors to make the UI cleaner
