@@ -50,7 +50,7 @@ public class WeatherDisplayFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new WeatherInfoAdapter(weatherData);
+        mAdapter = new WeatherInfoAdapter(weatherData, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
         return v;
