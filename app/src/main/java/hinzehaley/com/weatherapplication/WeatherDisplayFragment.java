@@ -18,7 +18,7 @@ import hinzehaley.com.weatherapplication.Adapters.WeatherInfoAdapter;
 public class WeatherDisplayFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private WeatherInfoAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     private ArrayList<WeatherInfo> weatherData = new ArrayList<WeatherInfo>();
@@ -67,6 +67,11 @@ public class WeatherDisplayFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    public void updateWeatherInfo(ArrayList<WeatherInfo> weatherInfo){
+        mAdapter.updateWeatherInfo(weatherInfo);
+        mAdapter.notifyDataSetChanged();
     }
 
 }

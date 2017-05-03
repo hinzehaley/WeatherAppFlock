@@ -6,8 +6,15 @@ package hinzehaley.com.weatherapplication;
 
 public class WeatherInfo {
 
-    public String imageId;
+    public String imageUrl;
     public String weatherDescription;
+    public String dayOfWeek;
+
+    public WeatherInfo(String title, String imageUrl, String desc){
+        this.dayOfWeek = title;
+        this.imageUrl = imageUrl;
+        this.weatherDescription = desc;
+    }
 
 
 
