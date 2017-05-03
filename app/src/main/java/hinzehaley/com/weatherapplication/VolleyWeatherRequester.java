@@ -20,6 +20,8 @@ import hinzehaley.com.weatherapplication.Listeners.WeatherRetrievedListener;
 
 /**
  * Created by haleyhinze on 5/3/17.
+ *
+ * Class to request weather information from weather underground
  */
 
 public class VolleyWeatherRequester {
@@ -39,6 +41,14 @@ public class VolleyWeatherRequester {
 
     }
 
+    /**
+     * Requests the three day forecast for the provided location
+     * @param context
+     * @param key
+     * @param state two-letter abbreviation
+     * @param city city name with underscores instead of spaces
+     * @param listener
+     */
 
     public void requestWeather(final Context context, String key, String state, String city, final WeatherRetrievedListener listener) {
 
@@ -69,7 +79,6 @@ public class VolleyWeatherRequester {
                                 weatherArr.add(weatherInfo);
                             }
 
-                            Log.i("REQUEST", "updating listener : " + weatherArr.size());
 
                             listener.weatherRetrieved(weatherArr);
 

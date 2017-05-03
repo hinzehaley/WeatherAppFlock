@@ -1,7 +1,6 @@
 package hinzehaley.com.weatherapplication;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +14,10 @@ import java.util.ArrayList;
 import hinzehaley.com.weatherapplication.Adapters.WeatherInfoAdapter;
 
 
+/**
+ * Fragment for displaying weather forecast. Created as a fragment to allow it to be reused
+ * in different places
+ */
 public class WeatherDisplayFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
@@ -34,6 +37,10 @@ public class WeatherDisplayFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //retain for rotation
+        setRetainInstance(true);
+
 
     }
 
@@ -69,6 +76,10 @@ public class WeatherDisplayFragment extends Fragment {
         super.onDetach();
     }
 
+    /**
+     * Called when new weather info is available. Called from WeatherLocationActivity
+     * @param weatherInfo
+     */
     public void updateWeatherInfo(ArrayList<WeatherInfo> weatherInfo){
         mAdapter.updateWeatherInfo(weatherInfo);
         mAdapter.notifyDataSetChanged();

@@ -20,18 +20,31 @@ public class WeatherLocationActivity extends AppCompatActivity implements Weathe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_location);
 
+
+
         VolleyWeatherRequester weatherRequester = VolleyWeatherRequester.getInstance();
         weatherRequester.requestWeather(this, getString(R.string.weather_api_key), "CA", "San_Francisco", this);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
+
+
+        weatherInfoFragment = (WeatherDisplayFragment) fragmentManager.findFragmentByTag(WEATHER_INFO_FRAGMENT_ID);
+
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        weatherInfoFragment = new WeatherDisplayFragment();
-        fragmentTransaction.add(R.id.fragment_container, weatherInfoFragment, WEATHER_INFO_FRAGMENT_ID);
-        fragmentTransaction.commit();
+        if(weatherInfoFragment == null) {
+            weatherInfoFragment = new WeatherDisplayFragment();
+            fragmentTransaction.add(R.id.fragment_container, weatherInfoFragment, WEATHER_INFO_FRAGMENT_ID);
+            fragmentTransaction.commit();
+        }
+
 
 
     }
 
+    /**
+     * Called from VolleyWeatherRequester when new weather info is retrieved
+     * @param weatherInfo
+     */
     @Override
     public void weatherRetrieved(ArrayList<WeatherInfo> weatherInfo) {
         weatherInfoFragment.updateWeatherInfo(weatherInfo);

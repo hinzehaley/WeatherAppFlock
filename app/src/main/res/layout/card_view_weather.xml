@@ -19,6 +19,7 @@
 
 <TextView
     android:id="@+id/txt_title"
+    android:padding="5dp"
     android:layout_gravity="center"
     android:textSize="30sp"
     android:layout_width="match_parent"
@@ -38,7 +39,7 @@
 
     <TextView
         android:id="@+id/txt_desc"
-
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
